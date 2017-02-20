@@ -1,0 +1,43 @@
+body {
+    background-color: #ff7262;
+    margin: 10px 30px;
+}
+
+ul {
+    color: white;
+}
+
+h1 {
+    text-shadow: 1px 2px 3px #5f0000;
+    color: yellow;
+    text-align: center;
+    font-size: 79px;
+}
+
+#container1 {
+  
+    text-align: justify;
+    color: white;
+}
+
+#container2 {
+
+   text-align: justify;
+   color:grey;
+}
+
+#container3 {
+  
+   margin: 10px 10px;
+   text-align: center;
+   color:;
+}
+
+#eatenlist{
+	color:grey;
+}
+
+button{
+	background-color: blue;
+	color: lightblue;
+}

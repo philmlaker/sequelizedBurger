@@ -1,13 +1,14 @@
 <h1>Eat That Burger!</h1>
 
-
-
+<div class="row">
+ <div class="col-md-6" id="container1">
+<h2>Burgers left to eat!</h2>
 <ul>
   {{#each burgers}}
   {{#unless this.devoured}}
     <li>
       <p>
-         <h2>{{this.id}}. {{this.burger_name}}</h2>
+         <h2> {{this.burger_name}}</h2>
         <form action="/{{this.id}} ?_method=PUT" method="POST">
           <input type="hidden" name="devoured" value = "true">
           <button type="submit">Devour Burger!</button>
@@ -17,11 +18,13 @@
     {{/unless}}
   {{/each}}
 </ul>
+</div>
 
+<div class="col-md-6" id="container2">
 
 <h2>Burgers that have been devoured!</h2>
 
-<ul>
+<ul id="eatenlist">
   {{#each burgers}}
     {{#if this.devoured}}
       <li>
@@ -31,6 +34,11 @@
     {{/if}}
   {{/each}}
 </ul>
+</div>
+</div>
+
+<div class="row">
+ <div class="col-md-12" id="container3">
 
 <h2>Add a Burger</h2>
 <form method="POST" action="/" class="button-size">
@@ -38,3 +46,9 @@
 	<button type="submit">Save Burgers!</button>
 </form>
 
+</div>
+</div>
+
+
+
+  
