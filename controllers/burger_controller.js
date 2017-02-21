@@ -12,13 +12,13 @@ router.get("/", function(req, res) {
         var hbsObject = {
             burgers: data
         };
-   
+
         res.render("index", hbsObject);
     });
 });
 
 router.post('/', function(req, res) {
-  console.log(req.body.burger_name)
+    console.log(req.body.burger_name)
     db.Burgers.create({
         burger_name: req.body.burger_name,
         devoured: false
@@ -51,14 +51,36 @@ router.post('/', function(req, res) {
 // });
 
 router.put('/:id', function(req, res) {
-     db.Burgers.findById(req.params.id).then(function(data) {
-        data.update({
-            devoured: true
-        }).then(function() {
-            res.redirect("/");
-        })
-    })
-});
+    db.Customers.create({ customer_name: req.body.customer_name })
+        .then(function(myCustomer) {
+            return db.Burgers.findById(req.params.id)
+                .then(function(data) {
+                    return data.update({
+                        devoured: true})
+                            .then(function() {
+                                res.redirect('/');
+                            })
+                    })
+                })
+        });
+
+// router.put('/burgers/update', function(req, res) {
+//     Customer.create({ customer_name: req.body.customer_name })
+//         .then(function(myCustomer) {
+//             return Burger.findOne({ where: { id: req.body.burger_id } })
+//                 .then(function(devourBurger) {
+//                     return devourBurger.setCustomer(myCustomer)
+//                         .then(function() {
+//                             return devourBurger.updateAttributes({
+//                                 devoured: true
+//                             }).then(function() {
+//                                 res.redirect('/burgers');
+//                             })
+//                         })
+//                 })
+//         })
+// });
+
 
 // router.delete("/", function(req, res) {
 //   burger.delete([
