@@ -11,6 +11,7 @@
          <h2> {{this.burger_name}}</h2>
         <form action="/{{this.id}} ?_method=PUT" method="POST">
           <input type="hidden" name="devoured" value = "true">
+          <textarea type="text" name="burger_name"></textarea>
           <button type="submit">Devour Burger!</button>
         </form>
       </p>
