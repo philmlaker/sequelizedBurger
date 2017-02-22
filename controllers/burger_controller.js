@@ -54,6 +54,10 @@ router.put('/:id', function(req, res) {
     db.Customers.create({ customer_name: req.body.customer_name })
         .then(function(myCustomer) {
             return db.Burgers.findById(req.params.id)
+                // .then(function(devourBurger) {
+                   // return devourBurger.setCustomers(myCustomer)
+
+
                 .then(function(data) {
                     return data.update({
                         devoured: true})
@@ -61,8 +65,10 @@ router.put('/:id', function(req, res) {
                                 res.redirect('/');
                             })
                     })
-                })
+                });
         });
+
+        //   });  
 
 // router.put('/burgers/update', function(req, res) {
 //     Customer.create({ customer_name: req.body.customer_name })
